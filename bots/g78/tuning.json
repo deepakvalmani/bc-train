@@ -1,7 +1,13 @@
 {
  "maps": {
   "general": {
-   "tune": {},
+   "tune": {
+    "ENGAGE_TTL": "2",
+    "LOCKED_DETOUR": "5",
+    "TEAM_SOAK_MONO": "1.5",
+    "BANK_STUCK_TURNS": "6",
+    "BANK_RETRY_WAIT": "12"
+   },
    "policy": {},
    "draft": null,
    "score": [

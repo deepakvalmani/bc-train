@@ -5,7 +5,13 @@ inline void apply_map(map_policies::Map m, Tune& t) {
     using M = map_policies::Map;
     (void)t; (void)m;
     switch (m) {
-
+    case M::unknown:
+        t.BANK_RETRY_WAIT = 12;
+        t.BANK_STUCK_TURNS = 6;
+        t.ENGAGE_TTL = 2;
+        t.LOCKED_DETOUR = 5;
+        t.TEAM_SOAK_MONO = 1.5;
+        break;
     default: break;
     }
 }
