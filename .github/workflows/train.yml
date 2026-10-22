@@ -1,0 +1,93 @@
+name: train-general
+
+# Parallel general-bot training (tools/gtrain.py). Each shard job tries a disjoint slice of the candidate fields
+# for `hours`, then a merge job combines the accepted changes and pushes branch training-<run id>.
+# Start: Actions tab -> train-general -> Run workflow. GitHub kills jobs at 6 h, so hours <= 5.
+
+on:
+  workflow_dispatch:
+    inputs:
+      hours:
+        description: "Hours per shard job (max 5)"
+        default: "5"
+      shards:
+        description: "Number of parallel shard jobs (max 20)"
+        default: "4"
+      bot:
+        description: "Bot folder to train"
+        default: "bots/g78"
+
+permissions:
+  contents: write
+
+env:
+  CAMBC_HOME: rt
+
+jobs:
+  plan:
+    runs-on: ubuntu-24.04
+    outputs:
+      matrix: ${{ steps.m.outputs.matrix }}
+    steps:
+      - id: m
+        env:
+          N: ${{ inputs.shards }}
+        run: |
+          python3 -c "import json,os;n=int(os.environ['N']);print('matrix='+json.dumps({'shard':list(range(n))}))" >> "$GITHUB_OUTPUT"
+
+  train:
+    needs: plan
+    runs-on: ubuntu-24.04
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.plan.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: bash tools/ci_setup.sh
+      - run: python tools/build_check.py ${{ inputs.bot }}
+      - name: Train shard
+        run: python -u tools/gtrain.py ${{ inputs.bot }} --runtime rt --hours ${{ inputs.hours }} --lanes 3 --shard ${{ matrix.shard }}/${{ inputs.shards }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: shard-${{ matrix.shard }}
+          path: |
+            ${{ inputs.bot }}/tuning.json
+            out/gt/**/train.log
+          if-no-files-found: warn
+
+  merge:
+    needs: train
+    if: always()
+    runs-on: ubuntu-24.04
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: bash tools/ci_setup.sh
+      - uses: actions/download-artifact@v4
+        with:
+          path: art
+          pattern: shard-*
+      - name: Merge shards
+        run: |
+          B=${{ inputs.bot }}
+          LIST=""
+          for d in art/shard-*; do
+            n=$(basename $d); mkdir -p bots/$n; cp -r $B/src bots/$n/; f=$(find $d -name tuning.json | head -1)
+            [ -n "$f" ] && cp "$f" bots/$n/tuning.json && LIST="$LIST,bots/$n"
+          done
+          python -u tools/gtrain.py $B --runtime rt --lanes 3 --hours 1 --merge-from "${LIST#,}"
+      - name: Push result branch
+        run: |
+          git config user.name training-bot; git config user.email training-bot@users.noreply.github.com
+          git checkout -b training-${{ github.run_id }}
+          git add ${{ inputs.bot }}/tuning.json ${{ inputs.bot }}/src/map_tuning.h ${{ inputs.bot }}/src/policy_tuning.h
+          git commit -m "Training result (run ${{ github.run_id }})" || echo nothing
+          git push origin training-${{ github.run_id }}

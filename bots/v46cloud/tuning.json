@@ -1,0 +1,1849 @@
+{
+ "maps": {
+  "ambush": {
+   "tune": {
+    "JOIN_MULT": "3.0f",
+    "OVERSTAFF_MULT": "0.3f",
+    "RETREAT_HOME": "false",
+    "CASSI_RECALL_HP": "0.275",
+    "GEM_SAFETY": "false"
+   },
+   "policy": {
+    "near_k": "10"
+   },
+   "draft": null,
+   "score": [
+    1.0,
+    276.54190008181797
+   ],
+   "cscore": [
+    1.0,
+    567.7433895271536
+   ],
+   "tested": [
+    "tune:DEATH_RADIUS=4",
+    "tune:RETREAT_HOME=true",
+    "tune:RETREAT=false",
+    "tune:MELEE_ITEM_STAT3=4",
+    "tune:ENEMY_CAMP_RADIUS=14",
+    "tune:SHOP_STYLE=4",
+    "tune:SAFE_GEMS=8",
+    "tune:ALLY_HEAL_HP=0.3f",
+    "tune:SQUAD_READY_RADIUS=5",
+    "tune:GROWTH_SCALE=false",
+    "tune:PVP_ALLY_RADIUS=2",
+    "tune:MONOLITH=true",
+    "tune:TANK_ITEM_FAMILY2=5",
+    "policy:rally=true",
+    "tune:MELEE_ITEM_FAMILY1=1",
+    "tune:REGROUP_DIST=4",
+    "tune:CUSTOM_SHOP=false",
+    "tune:KITE=false",
+    "tune:RALLY_RANGE=28",
+    "tune:SAFE_RECALL=false",
+    "tune:OWN_LOCKS=false",
+    "draft:draft=3,4,7,10,9,0,2,6,1,8,5",
+    "tune:LANCH_GATE=true",
+    "tune:LANCH_RECALL_HP=0.1f",
+    "draft:draft=3,4,2,10,9,0,7,6,1,8,5",
+    "policy:home_only=true",
+    "tune:SHOP_GOLD=201",
+    "tune:BANK_MIN=30",
+    "tune:ZONE_W=2.0",
+    "tune:STICKY_MULT=0.75f",
+    "tune:DEAD_SKIP_TURNS=7"
+   ],
+   "accepted": 4,
+   "stalled": 7,
+   "sat_logged": false,
+   "champs": {
+    "3": {
+     "games": 181,
+     "gems": 24061.0,
+     "md": 1186709.5,
+     "cd": 27167.499824523926,
+     "deaths": 26.0,
+     "kills": 10.0,
+     "gold": 74248.0,
+     "bodies": 362
+    },
+    "4": {
+     "games": 181,
+     "gems": 47571.0,
+     "md": 2809657.0,
+     "cd": 84844.89938735962,
+     "deaths": 10.0,
+     "kills": 73.0,
+     "gold": 147557.0,
+     "bodies": 181
+    },
+    "10": {
+     "games": 181,
+     "gems": 27273.0,
+     "md": 1734838.0,
+     "cd": 120248.74935913086,
+     "deaths": 11.0,
+     "kills": 115.0,
+     "gold": 86571.0,
+     "bodies": 181
+    },
+    "9": {
+     "games": 181,
+     "gems": 41800.0,
+     "md": 2978034.25,
+     "cd": 37776.0,
+     "deaths": 27.0,
+     "kills": 27.0,
+     "gold": 145110.0,
+     "bodies": 181
+    },
+    "0": {
+     "games": 168,
+     "gems": 40720.0,
+     "md": 1465011.75,
+     "cd": 13509.0,
+     "deaths": 11.0,
+     "kills": 2.0,
+     "gold": 119660.0,
+     "bodies": 168
+    },
+    "8": {
+     "games": 5,
+     "gems": 718.0,
+     "md": 32414.5,
+     "cd": 3008.2999877929688,
+     "deaths": 2.0,
+     "kills": 0.0,
+     "gold": 2350.0,
+     "bodies": 5
+    },
+    "2": {
+     "games": 8,
+     "gems": 662.0,
+     "md": 30753.5,
+     "cd": 0.0,
+     "deaths": 5.0,
+     "kills": 0.0,
+     "gold": 2114.0,
+     "bodies": 8
+    }
+   },
+   "sets": {
+    "0,3,4,9,10": {
+     "games": 168,
+     "wins": 160,
+     "gemdiff": 54808.0
+    },
+    "3,4,8,9,10": {
+     "games": 5,
+     "wins": 5,
+     "gemdiff": 2344.0
+    },
+    "2,3,4,9,10": {
+     "games": 8,
+     "wins": 4,
+     "gemdiff": 34.0
+    }
+   },
+   "team_size": 5
+  },
+  "collision": {
+   "tune": {
+    "OVERSTAFF_MULT": "0.3f",
+    "SQUAD_SOAK": "1.0",
+    "CASTER_ITEM_FAMILY1": "1",
+    "DANGER_CAMP_RADIUS": "4",
+    "BANK_AT": "60",
+    "BANK_MIN": "8"
+   },
+   "policy": {},
+   "draft": [
+    3,
+    4,
+    10,
+    9,
+    2,
+    0,
+    7,
+    6,
+    1,
+    8,
+    5
+   ],
+   "score": [
+    1.0,
+    766.9353570315176
+   ],
+   "cscore": [
+    1.0,
+    526.2063997211828
+   ],
+   "tested": [
+    "tune:DEATH_RADIUS=4",
+    "tune:RETREAT_HOME=false",
+    "tune:RETREAT=false",
+    "tune:MELEE_ITEM_STAT3=4",
+    "tune:ENEMY_CAMP_RADIUS=14",
+    "tune:SHOP_STYLE=6",
+    "tune:SAFE_GEMS=8",
+    "policy:respawn_gate=50",
+    "tune:PVP_ALLY_RADIUS=10",
+    "tune:GROWTH_SCALE=false",
+    "draft:draft=3,4,10,9,2,0,6,7,1,8,5",
+    "tune:MONOLITH=true",
+    "tune:TANK_ITEM_FAMILY2=2",
+    "policy:rally=true",
+    "tune:HUNT_MIN_GEMS=20",
+    "tune:GEM_SAFETY=false",
+    "tune:MELEE_ITEM_FAMILY1=1",
+    "tune:REGROUP_DIST=9",
+    "tune:MELEE_ITEM_STAT1=1",
+    "tune:KITE=false",
+    "tune:MELEE_ITEM_FAMILY2=8",
+    "tune:SAFE_RECALL=false",
+    "draft:draft=3,4,7,10,9,2,0,6,1,8,5",
+    "tune:OWN_LOCKS=false",
+    "tune:LANCH_RECALL_HP=0.5f",
+    "tune:BANK_MIN=16",
+    "policy:gold_only_scale=2.0f",
+    "tune:BANK_AT=15",
+    "tune:ZONE_W=0.5",
+    "tune:OVERSTAFF_MULT=0.6f",
+    "tune:GOLD_W=0.15",
+    "tune:SHOP_GOLD=201",
+    "tune:SQUAD_SOAK=0.5",
+    "tune:WAIT_CLAIMED_MULT=0.05f",
+    "tune:GEM_W=0.9",
+    "policy:near_k=20",
+    "tune:CAPTURE_SKIP_TURNS=4",
+    "tune:BANK_AT=31",
+    "tune:JOIN_MULT=1.0f",
+    "policy:solo_capture=true",
+    "tune:CAPTURE_SKIP_TURNS=16"
+   ],
+   "accepted": 5,
+   "stalled": 16,
+   "sat_logged": false,
+   "champs": {
+    "3": {
+     "games": 284,
+     "gems": 127596.0,
+     "md": 7798128.5,
+     "cd": 395623.4230041504,
+     "deaths": 660.0,
+     "kills": 340.0,
+     "gold": 654035.0,
+     "bodies": 568
+    },
+    "4": {
+     "games": 284,
+     "gems": 60448.0,
+     "md": 5390381.5,
+     "cd": 627756.1077899933,
+     "deaths": 135.0,
+     "kills": 354.0,
+     "gold": 299235.0,
+     "bodies": 284
+    },
+    "10": {
+     "games": 266,
+     "gems": 59090.0,
+     "md": 4463406.0,
+     "cd": 799014.8605651855,
+     "deaths": 205.0,
+     "kills": 719.0,
+     "gold": 287620.0,
+     "bodies": 266
+    },
+    "6": {
+     "games": 6,
+     "gems": 1068.0,
+     "md": 58731.5,
+     "cd": 6201.5,
+     "deaths": 5.0,
+     "kills": 1.0,
+     "gold": 5255.0,
+     "bodies": 6
+    },
+    "8": {
+     "games": 6,
+     "gems": 922.0,
+     "md": 60279.75,
+     "cd": 10354.699977874756,
+     "deaths": 11.0,
+     "kills": 0.0,
+     "gold": 4720.0,
+     "bodies": 6
+    },
+    "1": {
+     "games": 6,
+     "gems": 688.0,
+     "md": 59682.75,
+     "cd": 2223.0,
+     "deaths": 6.0,
+     "kills": 0.0,
+     "gold": 4248.0,
+     "bodies": 6
+    }
+   },
+   "sets": {
+    "3,4,10": {
+     "games": 266,
+     "wins": 216,
+     "gemdiff": 59170.0
+    },
+    "3,4,6": {
+     "games": 6,
+     "wins": 1,
+     "gemdiff": -1688.0
+    },
+    "3,4,8": {
+     "games": 6,
+     "wins": 1,
+     "gemdiff": -1684.0
+    },
+    "1,3,4": {
+     "games": 6,
+     "wins": 2,
+     "gemdiff": -1612.0
+    }
+   },
+   "team_size": 3
+  },
+  "lanes": {
+   "tune": {
+    "GEM_SAFETY": "false",
+    "SHOP_THREAT_RADIUS": "10",
+    "SPAWN_HEAL_HP": "0.5f",
+    "CASSI_RECALL_HP": "0.275",
+    "SQUAD_READY_RADIUS": "5",
+    "DANGER_MEMORY": "10"
+   },
+   "policy": {},
+   "draft": null,
+   "score": [
+    0.75,
+    205.5
+   ],
+   "cscore": [
+    1.0,
+    216.75
+   ],
+   "tested": [
+    "tune:DEATH_RADIUS=4",
+    "tune:RETREAT_HOME=false",
+    "tune:RETREAT=false",
+    "tune:MELEE_ITEM_STAT3=4",
+    "tune:ENEMY_CAMP_RADIUS=14",
+    "tune:SHOP_STYLE=4",
+    "tune:SAFE_GEMS=8",
+    "tune:ALLY_HEAL_HP=0.3f",
+    "tune:SQUAD_READY_RADIUS=6",
+    "tune:GROWTH_SCALE=false",
+    "tune:PVP_NORMAL_RADIUS=10",
+    "tune:MONOLITH=true",
+    "tune:TANK_ITEM_FAMILY2=5",
+    "policy:rally=true",
+    "tune:HUNT_MIN_GEMS=20",
+    "tune:GEM_SAFETY=true",
+    "tune:MELEE_ITEM_FAMILY1=1",
+    "tune:REGROUP_DIST=4",
+    "tune:CUSTOM_SHOP=false",
+    "tune:KITE=false",
+    "draft:draft=3,4,10,9,2,0,7,6,1,8,5",
+    "tune:SAFE_RECALL=false",
+    "tune:OWN_LOCKS=false",
+    "draft:draft=3,4,7,10,9,0,2,6,1,8,5",
+    "tune:BANK_AT_DANGER=11",
+    "tune:MELEE_ITEM_FAMILY2=2",
+    "tune:CASSI_RECALL_HP=0.1375",
+    "draft:draft=4,3,10,9,0,2,7,6,1,8,5",
+    "tune:RALLY_RANGE=28",
+    "tune:PRIVATE_SLACK=20"
+   ],
+   "accepted": 6,
+   "stalled": 4,
+   "sat_logged": false
+  },
+  "contest": {
+   "tune": {
+    "GOLD_W": "0.6"
+   },
+   "policy": {
+    "clear_rate": "2.0f"
+   },
+   "draft": null,
+   "score": [
+    0.8571428571428571,
+    -262.92829634061263
+   ],
+   "cscore": [
+    0.8571428571428571,
+    1706.2135635904394
+   ],
+   "tested": [
+    "tune:DEATH_RADIUS=4",
+    "tune:RETREAT_HOME=false",
+    "tune:RETREAT=false",
+    "tune:MELEE_ITEM_STAT3=4",
+    "tune:COLLECTOR_FOCUS=false",
+    "tune:SHOP_STYLE=6",
+    "tune:SAFE_GEMS=8",
+    "tune:SPAWN_HEAL_HP=0.5f",
+    "tune:SQUAD_READY_RADIUS=8",
+    "tune:GROWTH_SCALE=false",
+    "tune:PVP_ALLY_RADIUS=6",
+    "tune:MONOLITH=true",
+    "tune:TANK_ITEM_FAMILY2=5",
+    "policy:rally=true",
+    "tune:HUNT_MIN_GEMS=20",
+    "tune:GEM_SAFETY=false",
+    "tune:MELEE_ITEM_FAMILY1=1",
+    "tune:REGROUP_DIST=9",
+    "tune:KITE=false",
+    "tune:TANK_ITEM_FAMILY1=1",
+    "tune:MELEE_ITEM_FAMILY2=8",
+    "tune:SAFE_RECALL=false",
+    "tune:OWN_LOCKS=false",
+    "draft:draft=3,4,7,10,9,0,2,6,1,8,5",
+    "tune:BANK_AT_DANGER=11",
+    "tune:MELEE_ITEM_FAMILY2=2",
+    "tune:LANCH_GATE=true",
+    "draft:draft=3,4,1,10,9,0,2,7,6,8,5",
+    "tune:ZONE_W=0.5",
+    "policy:solo_capture=true",
+    "draft:draft=3,4,2,10,9,0,7,6,1,8,5",
+    "policy:gold_only_scale=2.0f",
+    "tune:CLAIMED_MULT=0.175f",
+    "tune:SQUAD_SOAK=0.72",
+    "tune:GEM_W=0.9",
+    "tune:CAPTURE_SKIP_TURNS=16",
+    "policy:gold_only_scale=0.5f",
+    "tune:CLAIMED_MULT=0.7f",
+    "tune:BANK_AT=31",
+    "tune:CAMP_OVERHEAD=10.0f",
+    "tune:BANK_MIN=16",
+    "tune:BANK_MIN=8",
+    "policy:home_only=true"
+   ],
+   "accepted": 2,
+   "stalled": 15,
+   "sat_logged": false,
+   "champs": {
+    "3": {
+     "games": 267,
+     "gems": 35400.0,
+     "md": 9824088.5,
+     "cd": 5500195.102642059,
+     "deaths": 3174.0,
+     "kills": 4115.0,
+     "gold": 872171.0,
+     "bodies": 534
+    },
+    "4": {
+     "games": 267,
+     "gems": 9600.0,
+     "md": 8919475.0,
+     "cd": 5885036.597694397,
+     "deaths": 1275.0,
+     "kills": 3833.0,
+     "gold": 684056.0,
+     "bodies": 267
+    },
+    "10": {
+     "games": 267,
+     "gems": 12200.0,
+     "md": 9221591.75,
+     "cd": 6803371.670701981,
+     "deaths": 1128.0,
+     "kills": 5829.0,
+     "gold": 769788.0,
+     "bodies": 267
+    },
+    "9": {
+     "games": 267,
+     "gems": 97800.0,
+     "md": 10565415.0,
+     "cd": 820954.7996520996,
+     "deaths": 813.0,
+     "kills": 117.0,
+     "gold": 323404.0,
+     "bodies": 267
+    },
+    "0": {
+     "games": 252,
+     "gems": 47200.0,
+     "md": 9351188.75,
+     "cd": 590334.9982528687,
+     "deaths": 1022.0,
+     "kills": 28.0,
+     "gold": 247762.0,
+     "bodies": 252
+    },
+    "1": {
+     "games": 7,
+     "gems": 1400.0,
+     "md": 217893.5,
+     "cd": 81111.25,
+     "deaths": 47.0,
+     "kills": 23.0,
+     "gold": 12354.0,
+     "bodies": 7
+    },
+    "2": {
+     "games": 8,
+     "gems": 0.0,
+     "md": 134938.5,
+     "cd": 37299.25,
+     "deaths": 70.0,
+     "kills": 1.0,
+     "gold": 8805.0,
+     "bodies": 8
+    }
+   },
+   "sets": {
+    "0,3,4,9,10": {
+     "games": 252,
+     "wins": 196,
+     "gemdiff": 137200.0
+    },
+    "1,3,4,9,10": {
+     "games": 7,
+     "wins": 4,
+     "gemdiff": 1000.0
+    },
+    "2,3,4,9,10": {
+     "games": 8,
+     "wins": 5,
+     "gemdiff": 3400.0
+    }
+   },
+   "team_size": 5
+  },
+  "eight": {
+   "tune": {
+    "RETREAT": "false",
+    "BANK_MAX": "28",
+    "HEAT_ADD": "1.995f",
+    "DANGER_MEMORY": "10"
+   },
+   "policy": {
+    "lone_foes": "4"
+   },
+   "draft": [
+    3,
+    4,
+    7,
+    10,
+    9,
+    0,
+    2,
+    6,
+    1,
+    8,
+    5
+   ],
+   "score": [
+    1.0,
+    515.0
+   ],
+   "cscore": [
+    1.0,
+    619.75
+   ],
+   "tested": [
+    "tune:DEATH_MEMORY_ON=false",
+    "tune:RETREAT_HOME=false",
+    "tune:RETREAT=true",
+    "tune:MELEE_ITEM_STAT3=3",
+    "tune:ENEMY_CAMP_RADIUS=14",
+    "tune:SHOP_STYLE=6",
+    "tune:SAFE_GEMS=8",
+    "policy:respawn_gate=50",
+    "tune:PVP_ALLY_RADIUS=10",
+    "tune:GROWTH_SCALE=false",
+    "draft:draft=3,4,7,10,9,0,6,2,1,8,5",
+    "tune:MONOLITH=true",
+    "tune:TANK_ITEM_FAMILY2=2",
+    "policy:rally=true",
+    "tune:HUNT_MIN_GEMS=20",
+    "tune:GEM_SAFETY=false",
+    "tune:CASTER_POWER_STAT=2",
+    "tune:REGROUP_DIST=9",
+    "tune:KITE=false",
+    "tune:MELEE_ITEM_FAMILY1=4",
+    "tune:MELEE_ITEM_FAMILY2=5",
+    "tune:SAFE_RECALL=false",
+    "tune:OWN_LOCKS=false",
+    "draft:draft=3,4,7,10,9,0,2,6,1,8,5",
+    "tune:BANK_AT_DANGER=11",
+    "tune:TANK_ITEM_STAT3=4",
+    "tune:CASSI_RECALL_HP=0.275",
+    "tune:CASSI_DANGER_NEAR=2",
+    "tune:MELEE_ITEM_FAMILY2=2",
+    "tune:PRIVATE_SLACK=20",
+    "tune:MELEE_ITEM_FAMILY1=3",
+    "tune:BURST_FOCUS_MULT=0.75f",
+    "tune:MELEE_ITEM_STAT3=1",
+    "tune:LOCKED_DETOUR=5",
+    "tune:BANK_MAX=14",
+    "draft:draft=4,3,7,10,9,0,2,6,1,8,5",
+    "tune:RALLY_HP=0.25f",
+    "tune:EMBLEM_COUNT=3",
+    "tune:MONO_DAMAGE_MIN=400",
+    "tune:HEAT_ADD=3.99f",
+    "tune:CAPTURE_SKIP_TURNS=9",
+    "tune:MELEE_ITEM_FAMILY3=8",
+    "tune:CASTER_ITEM_FAMILY2=8",
+    "tune:REN_AVOID_HP=0.2f",
+    "tune:AVOID_ENEMY_CAMPS=true",
+    "tune:CASTER_ITEM_STAT1=0",
+    "tune:RALLY_RANGE=7",
+    "tune:TANK_ITEM_FAMILY1=4",
+    "tune:DEATH_RADIUS=9",
+    "tune:BANK_MIN=16",
+    "tune:CASTER_FOCUS_SHARE=0.8",
+    "tune:DEATH_RADIUS=4",
+    "tune:PVP_ALLY_RADIUS=6",
+    "tune:SHOP_GOLD=100",
+    "tune:RECALL_HP_DANGER=0.5",
+    "tune:BANK_K=4.75",
+    "tune:SQUAD_SOAK=0.72",
+    "tune:HUNT_RANGE=2",
+    "tune:BANK_STUCK_TURNS=12",
+    "tune:TANK_ITEM_STAT1=1",
+    "tune:MONO_BIAS=0.5",
+    "tune:ENGAGE_TTL=6"
+   ],
+   "accepted": 6,
+   "stalled": 36,
+   "sat_logged": true
+  },
+  "expanse": {
+   "tune": {
+    "ALLY_BAG_ESTIMATE": "2.0f",
+    "HEAT_DECAY_TURNS": "5",
+    "BANK_K": "19.0",
+    "TANK_ITEM_FAMILY1": "1",
+    "MELEE_ITEM_FAMILY2": "2",
+    "REGROUP_MAX": "30",
+    "BANK_MIN": "8"
+   },
+   "policy": {
+    "home_only": "true"
+   },
+   "draft": null,
+   "score": [
+    1.0,
+    387.7955801462547
+   ],
+   "cscore": [
+    1.0,
+    440.70371584062667
+   ],
+   "tested": [
+    "tune:DEATH_RADIUS=4",
+    "tune:RETREAT_HOME=false",
+    "tune:RETREAT=false",
+    "tune:MELEE_ITEM_STAT3=4",
+    "tune:ENEMY_CAMP_RADIUS=14",
+    "tune:SHOP_STYLE=6",
+    "tune:SAFE_GEMS=8",
+    "policy:respawn_gate=50",
+    "tune:PVP_ALLY_RADIUS=10",
+    "tune:GROWTH_SCALE=false",
+    "draft:draft=3,4,10,9,0,2,6,7,1,8,5",
+    "tune:MONOLITH=true",
+    "tune:TANK_ITEM_FAMILY2=5",
+    "policy:rally=true",
+    "tune:HUNT_MIN_GEMS=20",
+    "tune:GEM_SAFETY=false",
+    "tune:MELEE_ITEM_FAMILY1=1",
+    "tune:REGROUP_DIST=9",
+    "tune:MELEE_ITEM_STAT1=1",
+    "tune:KITE=false",
+    "tune:MELEE_ITEM_FAMILY2=4",
+    "tune:SAFE_RECALL=false",
+    "tune:OWN_LOCKS=false",
+    "draft:draft=3,4,7,10,9,0,2,6,1,8,5",
+    "tune:BANK_AT_DANGER=11",
+    "tune:TANK_POWER_STAT=1",
+    "tune:DANGER_MEMORY=10",
+    "tune:ESCORT_RADIUS=16",
+    "tune:CASSI_DANGER_NEAR=2",
+    "tune:CASSI_RECALL_HP=0.275",
+    "tune:MELEE_ITEM_FAMILY2=3",
+    "tune:PRIVATE_SLACK=20",
+    "tune:MELEE_ITEM_FAMILY1=4",
+    "tune:BURST_FOCUS_MULT=0.75f",
+    "tune:MELEE_ITEM_STAT3=3",
+    "tune:LOCKED_DETOUR=5",
+    "tune:BANK_MAX=28",
+    "draft:draft=4,3,10,9,0,2,7,6,1,8,5",
+    "tune:LANCH_ON=true",
+    "tune:CAMP_OVERHEAD=10.0f",
+    "tune:STICKY_MULT=3.0f",
+    "tune:BANK_AT=15",
+    "tune:BANK_MAX=56",
+    "tune:ZONE_W=0.5",
+    "policy:clear_rate=2.0f",
+    "policy:solo_capture=true",
+    "draft:draft=3,4,5,10,9,0,2,7,6,1,8",
+    "tune:CAMP_OVERHEAD=2.5f",
+    "tune:DEAD_SKIP_TURNS=12",
+    "tune:BANK_AT=60",
+    "tune:BANK_MIN=30",
+    "tune:WAIT_CLAIMED_MULT=0.2f",
+    "tune:ZONE_W=2.0",
+    "tune:GEM_W=3.6",
+    "tune:CLAIMED_MULT=0.7f",
+    "tune:BANK_AT=31"
+   ],
+   "accepted": 8,
+   "stalled": 5,
+   "sat_logged": false,
+   "champs": {
+    "3": {
+     "games": 278,
+     "gems": 98050.0,
+     "md": 7235694.25,
+     "cd": 7816.049942016602,
+     "deaths": 2.0,
+     "kills": 1.0,
+     "gold": 404358.0,
+     "bodies": 556
+    },
+    "9": {
+     "games": 251,
+     "gems": 111876.0,
+     "md": 6797302.0,
+     "cd": 1476.5,
+     "deaths": 1.0,
+     "kills": 0.0,
+     "gold": 443642.0,
+     "bodies": 251
+    },
+    "2": {
+     "games": 257,
+     "gems": 57050.0,
+     "md": 3418532.25,
+     "cd": 8763.0,
+     "deaths": 23.0,
+     "kills": 0.0,
+     "gold": 239750.0,
+     "bodies": 257
+    },
+    "4": {
+     "games": 27,
+     "gems": 7232.0,
+     "md": 550131.8998413086,
+     "cd": 8564.000858306885,
+     "deaths": 0.0,
+     "kills": 4.0,
+     "gold": 30450.0,
+     "bodies": 27
+    },
+    "5": {
+     "games": 7,
+     "gems": 1570.0,
+     "md": 111760.84962463379,
+     "cd": 3296.7999992370605,
+     "deaths": 0.0,
+     "kills": 1.0,
+     "gold": 6600.0,
+     "bodies": 7
+    },
+    "6": {
+     "games": 8,
+     "gems": 2452.0,
+     "md": 126419.5,
+     "cd": 1272.0,
+     "deaths": 0.0,
+     "kills": 0.0,
+     "gold": 10010.0,
+     "bodies": 8
+    },
+    "1": {
+     "games": 6,
+     "gems": 1558.0,
+     "md": 115456.5,
+     "cd": 1576.0,
+     "deaths": 0.0,
+     "kills": 0.0,
+     "gold": 8292.0,
+     "bodies": 6
+    }
+   },
+   "sets": {
+    "2,3,9": {
+     "games": 251,
+     "wins": 223,
+     "gemdiff": 42546.0
+    },
+    "2,3,4": {
+     "games": 6,
+     "wins": 3,
+     "gemdiff": -210.0
+    },
+    "3,4,5": {
+     "games": 7,
+     "wins": 3,
+     "gemdiff": -72.0
+    },
+    "3,4,6": {
+     "games": 8,
+     "wins": 4,
+     "gemdiff": -162.0
+    },
+    "1,3,4": {
+     "games": 6,
+     "wins": 4,
+     "gemdiff": 44.0
+    }
+   },
+   "team_size": 3
+  },
+  "interlock": {
+   "tune": {
+    "RETREAT_HOME": "false",
+    "SPAWN_HEAL_HP": "0.5f",
+    "GEM_SAFETY": "false",
+    "MELEE_ITEM_FAMILY1": "1",
+    "MELEE_ITEM_FAMILY2": "4",
+    "ALLY_BAG_ESTIMATE": "2.0f"
+   },
+   "policy": {},
+   "draft": [
+    4,
+    3,
+    10,
+    9,
+    0,
+    2,
+    7,
+    6,
+    1,
+    8,
+    5
+   ],
+   "score": [
+    0.75,
+    252.25
+   ],
+   "cscore": [
+    1.0,
+    539.5
+   ],
+   "tested": [
+    "tune:DEATH_RADIUS=4",
+    "tune:RETREAT_HOME=true",
+    "tune:MELEE_ITEM_STAT3=4",
+    "tune:RETREAT=false",
+    "tune:COLLECTOR_FOCUS=false",
+    "tune:SHOP_STYLE=6",
+    "tune:SAFE_GEMS=8",
+    "tune:SPAWN_HEAL_HP=0.25f",
+    "tune:SQUAD_READY_RADIUS=5",
+    "tune:GROWTH_SCALE=false",
+    "tune:PVP_ALLY_RADIUS=2",
+    "tune:MONOLITH=true",
+    "tune:TANK_ITEM_FAMILY2=2",
+    "policy:rally=true",
+    "tune:HUNT_MIN_GEMS=20",
+    "tune:GEM_SAFETY=true",
+    "tune:CASTER_POWER_STAT=2",
+    "tune:REGROUP_DIST=9",
+    "tune:CUSTOM_SHOP=false",
+    "tune:KITE=false",
+    "tune:MELEE_ITEM_FAMILY2=8",
+    "tune:SAFE_RECALL=false",
+    "tune:OWN_LOCKS=false",
+    "draft:draft=4,3,7,10,9,0,2,6,1,8,5",
+    "tune:BANK_AT_DANGER=11",
+    "tune:MELEE_ITEM_FAMILY2=2",
+    "tune:ENEMY_CAMP_RADIUS=14",
+    "tune:DANGER_MEMORY=10",
+    "tune:CASSI_RECALL_HP=0.275",
+    "draft:draft=3,4,10,9,0,2,7,6,1,8,5",
+    "tune:MELEE_ITEM_FAMILY2=5",
+    "tune:PRIVATE_SLACK=20",
+    "tune:ALLY_BAG_ESTIMATE=4.0f",
+    "tune:TARGET_HP_W=0.5f",
+    "tune:ENDGAME_SLACK=50",
+    "tune:CASTER_ITEM_STAT3=1",
+    "tune:BANK_MAX=28",
+    "tune:CHASE_HP=1.0f",
+    "tune:DEAD_SKIP_TURNS=7",
+    "tune:EMBLEM_COUNT=3"
+   ],
+   "accepted": 8,
+   "stalled": 40,
+   "sat_logged": false
+  },
+  "monolith": {
+   "tune": {
+    "SQUAD_READY_RADIUS": "8",
+    "GEM_SAFETY": "false",
+    "SAFE_RECALL": "false",
+    "SQUAD_SOAK": "0.72",
+    "PVP_FOE_RADIUS": "4",
+    "MELEE_ITEM_FAMILY2": "2",
+    "CASSI_RECALL_HP": "0.275"
+   },
+   "policy": {},
+   "draft": null,
+   "score": [
+    1.0,
+    310.75
+   ],
+   "cscore": [
+    1.0,
+    304.5
+   ],
+   "tested": [
+    "tune:DEATH_RADIUS=4",
+    "tune:RETREAT_HOME=false",
+    "tune:RETREAT=false",
+    "tune:MELEE_ITEM_STAT3=4",
+    "tune:COLLECTOR_FOCUS=false",
+    "tune:SHOP_STYLE=6",
+    "tune:SAFE_GEMS=8",
+    "tune:SPAWN_HEAL_HP=0.5f",
+    "tune:SQUAD_READY_RADIUS=16",
+    "tune:GROWTH_SCALE=false",
+    "tune:PVP_ALLY_RADIUS=6",
+    "tune:MONOLITH=true",
+    "tune:TANK_ITEM_FAMILY2=5",
+    "policy:rally=true",
+    "tune:HUNT_MIN_GEMS=20",
+    "tune:GEM_SAFETY=true",
+    "tune:MELEE_ITEM_FAMILY1=1",
+    "tune:REGROUP_DIST=9",
+    "tune:TANK_ITEM_FAMILY1=1",
+    "tune:KITE=false",
+    "tune:MELEE_ITEM_FAMILY2=8",
+    "tune:SAFE_RECALL=true",
+    "tune:OWN_LOCKS=false",
+    "draft:draft=3,4,7,10,9,0,2,6,1,8,5",
+    "tune:DANGER_MEMORY=10",
+    "tune:ENEMY_CAMP_RADIUS=14",
+    "tune:MELEE_ITEM_FAMILY2=5",
+    "tune:PRIVATE_SLACK=20",
+    "tune:CAPTURE_SKIP_TURNS=4",
+    "tune:TARGET_HP_W=0.5f",
+    "tune:ALLY_BAG_ESTIMATE=0.5f",
+    "tune:CASTER_ITEM_STAT3=3",
+    "tune:BANK_MAX=28",
+    "tune:CHASE_HP=1.0f",
+    "tune:DEAD_SKIP_TURNS=12",
+    "tune:EMBLEM_COUNT=3",
+    "policy:lone_foes=4",
+    "tune:CASTER_ITEM_STAT2=2",
+    "tune:ENDGAME_ROUTE_MULT=4",
+    "tune:RALLY_RANGE=28",
+    "tune:CASTER_ITEM_STAT2=0",
+    "tune:REN_TARGET_PENALTY=250",
+    "tune:ESCORT_RADIUS=16",
+    "tune:TANK_HP=500.0f",
+    "tune:RETREAT_BUSH_BONUS=8",
+    "tune:RETREAT_SPREAD_PENALTY=16",
+    "tune:SQUAD_SOAK=0.36",
+    "tune:BANK_MIN=16",
+    "tune:CASTER_FOCUS_SHARE=0.8",
+    "tune:TANK_CENTRE_MULT=0.75",
+    "tune:TANK_POWER_STAT=1",
+    "tune:SHOP_GOLD=100",
+    "tune:RECALL_HP_DANGER=0.5",
+    "tune:BANK_K=4.75",
+    "tune:SQUAD_SOAK=1.44",
+    "tune:HUNT_RANGE=2",
+    "tune:BANK_STUCK_TURNS=12",
+    "tune:TANK_ITEM_FAMILY2=2",
+    "tune:MONO_BIAS=0.5",
+    "tune:ENGAGE_TTL=6",
+    "tune:JOIN_RANGE=4",
+    "tune:TEAM_SOAK=0.25",
+    "draft:draft=3,4,10,9,0,2,6,7,1,8,5",
+    "tune:REGROUP_SIZE=2"
+   ],
+   "accepted": 7,
+   "stalled": 38,
+   "sat_logged": false
+  },
+  "pilgrimage": {
+   "tune": {
+    "GEM_SAFETY": "false",
+    "MELEE_ITEM_FAMILY1": "1",
+    "KITE": "false"
+   },
+   "policy": {},
+   "draft": null,
+   "score": [
+    0.75,
+    186.0
+   ],
+   "cscore": [
+    1.0,
+    581.875
+   ],
+   "tested": [
+    "tune:DEATH_RADIUS=4",
+    "tune:RETREAT_HOME=false",
+    "tune:RETREAT=false",
+    "tune:MELEE_ITEM_STAT3=4",
+    "tune:ENEMY_CAMP_RADIUS=14",
+    "tune:SHOP_STYLE=6",
+    "tune:SAFE_GEMS=8",
+    "policy:respawn_gate=50",
+    "tune:PVP_ALLY_RADIUS=10",
+    "tune:GROWTH_SCALE=false",
+    "draft:draft=3,4,10,9,0,2,6,7,1,8,5",
+    "tune:MONOLITH=true",
+    "tune:TANK_ITEM_FAMILY2=2",
+    "policy:rally=true",
+    "tune:HUNT_MIN_GEMS=20",
+    "tune:GEM_SAFETY=true",
+    "tune:CASTER_POWER_STAT=2",
+    "tune:REGROUP_DIST=9",
+    "tune:MELEE_ITEM_STAT1=1",
+    "tune:KITE=true",
+    "tune:MELEE_ITEM_FAMILY2=8",
+    "tune:SAFE_RECALL=false"
+   ],
+   "accepted": 3,
+   "stalled": 22,
+   "sat_logged": false
+  },
+  "rushbait_v2": {
+   "tune": {
+    "TANK_ITEM_FAMILY2": "5",
+    "MELEE_ITEM_FAMILY2": "2"
+   },
+   "policy": {},
+   "draft": null,
+   "score": [
+    0.75,
+    123.5
+   ],
+   "cscore": [
+    1.0,
+    556.5
+   ],
+   "tested": [
+    "tune:DEATH_RADIUS=4",
+    "tune:RETREAT_HOME=false",
+    "tune:RETREAT=false",
+    "tune:MELEE_ITEM_STAT3=4",
+    "tune:COLLECTOR_FOCUS=false",
+    "tune:SHOP_STYLE=6",
+    "tune:SAFE_GEMS=8",
+    "tune:SPAWN_HEAL_HP=0.5f",
+    "tune:SQUAD_READY_RADIUS=8",
+    "tune:GROWTH_SCALE=false",
+    "tune:PVP_ALLY_RADIUS=6",
+    "tune:MONOLITH=true",
+    "tune:TANK_ITEM_FAMILY2=6",
+    "policy:rally=true",
+    "tune:HUNT_MIN_GEMS=20",
+    "tune:GEM_SAFETY=false",
+    "tune:MELEE_ITEM_FAMILY1=1",
+    "tune:REGROUP_DIST=9",
+    "tune:TANK_ITEM_FAMILY1=1",
+    "tune:KITE=false",
+    "tune:MELEE_ITEM_FAMILY2=4",
+    "tune:SAFE_RECALL=false",
+    "tune:OWN_LOCKS=false",
+    "draft:draft=3,4,7,10,9,0,2,6,1,8,5"
+   ],
+   "accepted": 2,
+   "stalled": 24,
+   "sat_logged": false
+  },
+  "swirl": {
+   "tune": {
+    "GROWTH_SCALE": "false",
+    "GEM_SAFETY": "false",
+    "PVP_ALLY_RADIUS": "6",
+    "KITE": "false"
+   },
+   "policy": {},
+   "draft": null,
+   "score": [
+    0.75,
+    273.75
+   ],
+   "cscore": [
+    1.0,
+    578.625
+   ],
+   "tested": [
+    "tune:DEATH_RADIUS=4",
+    "tune:RETREAT_HOME=false",
+    "tune:RETREAT=false",
+    "tune:MELEE_ITEM_STAT3=4",
+    "tune:COLLECTOR_FOCUS=false",
+    "tune:SHOP_STYLE=6",
+    "tune:SAFE_GEMS=8",
+    "tune:SPAWN_HEAL_HP=0.5f",
+    "tune:GROWTH_SCALE=true",
+    "tune:SQUAD_READY_RADIUS=8",
+    "tune:PVP_ALLY_RADIUS=7",
+    "tune:MONOLITH=true",
+    "policy:rally=true",
+    "tune:TANK_ITEM_FAMILY2=5",
+    "tune:HUNT_MIN_GEMS=20",
+    "tune:GEM_SAFETY=true",
+    "tune:REGROUP_DIST=9",
+    "tune:MELEE_ITEM_FAMILY1=1",
+    "tune:MELEE_ITEM_FAMILY2=8",
+    "tune:SAFE_RECALL=false",
+    "tune:OWN_LOCKS=false",
+    "draft:draft=3,4,7,10,9,0,2,6,1,8,5",
+    "tune:BANK_AT_DANGER=11",
+    "tune:MELEE_ITEM_FAMILY2=2",
+    "tune:DANGER_MEMORY=10",
+    "tune:ENEMY_CAMP_RADIUS=14",
+    "draft:draft=4,3,10,9,0,2,7,6,1,8,5",
+    "tune:CASSI_RECALL_HP=0.275",
+    "tune:MELEE_ITEM_FAMILY2=5",
+    "tune:PRIVATE_SLACK=20",
+    "tune:CAPTURE_SKIP_TURNS=4",
+    "tune:TARGET_HP_W=0.5f",
+    "tune:ALLY_BAG_ESTIMATE=0.5f",
+    "tune:CASTER_ITEM_STAT3=3",
+    "tune:BANK_MAX=28",
+    "tune:CHASE_HP=1.0f",
+    "tune:DEAD_SKIP_TURNS=12",
+    "tune:EMBLEM_COUNT=3",
+    "policy:lone_foes=4",
+    "tune:CASTER_ITEM_STAT2=2",
+    "tune:ENDGAME_ROUTE_MULT=4",
+    "tune:RALLY_RANGE=28",
+    "tune:CASTER_ITEM_STAT2=0",
+    "tune:REN_TARGET_PENALTY=250",
+    "tune:ESCORT_RADIUS=16",
+    "tune:TANK_HP=500.0f"
+   ],
+   "accepted": 4,
+   "stalled": 28,
+   "sat_logged": false
+  },
+  "corners": {
+   "tune": {
+    "RECALL_HP": "0.19f",
+    "PER_ALTAR_RETRY": "false",
+    "BUSH_AMBUSH": "false",
+    "MELEE_ITEM_STAT3": "3",
+    "BANK_AT": "15"
+   },
+   "policy": {},
+   "draft": null,
+   "score": [
+    0.875,
+    689.9895148832593
+   ],
+   "cscore": [
+    0.875,
+    453.35261358491516
+   ],
+   "tested": [
+    "tune:DEATH_RADIUS=4",
+    "tune:RETREAT_HOME=false",
+    "tune:RETREAT=false",
+    "tune:MELEE_ITEM_STAT3=6",
+    "tune:COLLECTOR_FOCUS=false",
+    "tune:SHOP_STYLE=6",
+    "tune:SAFE_GEMS=8",
+    "tune:SPAWN_HEAL_HP=0.5f",
+    "tune:SQUAD_READY_RADIUS=8",
+    "tune:GROWTH_SCALE=false",
+    "tune:PVP_ALLY_RADIUS=6",
+    "tune:MONOLITH=true",
+    "tune:TANK_ITEM_FAMILY2=5",
+    "policy:rally=true",
+    "tune:HUNT_MIN_GEMS=20",
+    "tune:GEM_SAFETY=false",
+    "tune:MELEE_ITEM_FAMILY1=1",
+    "tune:REGROUP_DIST=9",
+    "tune:TANK_ITEM_FAMILY1=1",
+    "tune:KITE=false",
+    "tune:MELEE_ITEM_FAMILY2=8",
+    "tune:SAFE_RECALL=false",
+    "tune:OWN_LOCKS=false",
+    "draft:draft=3,4,7,10,9,0,2,6,1,8,5",
+    "tune:LANCH_GATE=true",
+    "tune:SQUAD_SOAK=0.72",
+    "tune:GOLD_W=0.6",
+    "tune:SHOP_GOLD=400",
+    "policy:near_k=20",
+    "tune:CLAIMED_MULT=0.175f",
+    "tune:STICKY_MULT=0.75f",
+    "tune:BANK_MIN=16",
+    "tune:BANK_MAX=28",
+    "tune:TEAM_SOAK=1.0",
+    "policy:clear_rate=0.5f",
+    "policy:clear_rate=2.0f",
+    "tune:ZONE_W=0.5",
+    "tune:CAMP_OVERHEAD=10.0f",
+    "tune:BANK_MIN=30",
+    "tune:SQUAD_SOAK=0.18",
+    "policy:gold_only_scale=2.0f",
+    "tune:BANK_MAX=56",
+    "tune:CAPTURE_SKIP_TURNS=16",
+    "policy:home_only=true",
+    "draft:draft=3,4,1,10,9,0,2,7,6,8,5",
+    "tune:BANK_AT=60",
+    "tune:CAPTURE_SKIP_TURNS=4",
+    "tune:BANK_MIN=8"
+   ],
+   "accepted": 5,
+   "stalled": 10,
+   "sat_logged": false,
+   "champs": {
+    "9": {
+     "games": 337,
+     "gems": 73014.0,
+     "md": 3362263.25,
+     "cd": 15855.0,
+     "deaths": 131.0,
+     "kills": 0.0,
+     "gold": 315584.0,
+     "bodies": 337
+    },
+    "0": {
+     "games": 317,
+     "gems": 63820.0,
+     "md": 3755791.0,
+     "cd": 12945.09994506836,
+     "deaths": 354.0,
+     "kills": 0.0,
+     "gold": 285966.0,
+     "bodies": 317
+    },
+    "4": {
+     "games": 337,
+     "gems": 40338.0,
+     "md": 5590950.5,
+     "cd": 293151.2119102478,
+     "deaths": 199.0,
+     "kills": 91.0,
+     "gold": 179118.0,
+     "bodies": 337
+    },
+    "3": {
+     "games": 337,
+     "gems": 99956.0,
+     "md": 5100520.25,
+     "cd": 170863.97533416748,
+     "deaths": 138.0,
+     "kills": 88.0,
+     "gold": 445828.0,
+     "bodies": 674
+    },
+    "10": {
+     "games": 337,
+     "gems": 36506.0,
+     "md": 4607525.0,
+     "cd": 176311.89935302734,
+     "deaths": 110.0,
+     "kills": 69.0,
+     "gold": 160614.0,
+     "bodies": 337
+    },
+    "8": {
+     "games": 6,
+     "gems": 1306.0,
+     "md": 73830.0,
+     "cd": 4256.300033569336,
+     "deaths": 3.0,
+     "kills": 1.0,
+     "gold": 5700.0,
+     "bodies": 6
+    },
+    "1": {
+     "games": 14,
+     "gems": 1904.0,
+     "md": 174878.0,
+     "cd": 9135.0,
+     "deaths": 6.0,
+     "kills": 0.0,
+     "gold": 11184.0,
+     "bodies": 14
+    }
+   },
+   "sets": {
+    "0,3,4,9,10": {
+     "games": 317,
+     "wins": 199,
+     "gemdiff": 26370.0
+    },
+    "3,4,8,9,10": {
+     "games": 6,
+     "wins": 3,
+     "gemdiff": 500.0
+    },
+    "1,3,4,9,10": {
+     "games": 14,
+     "wins": 10,
+     "gemdiff": -400.0
+    }
+   },
+   "team_size": 5
+  },
+  "elkring": {
+   "tune": {
+    "MELEE_ITEM_FAMILY2": "1",
+    "GEM_SAFETY": "false"
+   },
+   "policy": {},
+   "draft": [
+    3,
+    4,
+    7,
+    10,
+    9,
+    0,
+    2,
+    6,
+    1,
+    8,
+    5
+   ],
+   "score": [
+    1.0,
+    891.7790535956307
+   ],
+   "cscore": [
+    1.0,
+    673.6365041621236
+   ],
+   "tested": [
+    "tune:DEATH_RADIUS=4",
+    "tune:RETREAT_HOME=false",
+    "tune:RETREAT=false",
+    "tune:MELEE_ITEM_STAT3=4",
+    "tune:ENEMY_CAMP_RADIUS=14",
+    "tune:SHOP_STYLE=6",
+    "tune:SAFE_GEMS=8",
+    "policy:respawn_gate=50",
+    "tune:PVP_ALLY_RADIUS=10",
+    "tune:GROWTH_SCALE=false",
+    "draft:draft=3,4,7,10,9,0,6,2,1,8,5",
+    "tune:MONOLITH=true",
+    "policy:rally=true",
+    "tune:TANK_ITEM_FAMILY2=2",
+    "tune:HUNT_MIN_GEMS=20",
+    "tune:GEM_SAFETY=true",
+    "tune:LANCH_GATE=true",
+    "tune:BANK_MAX=56",
+    "tune:JOIN_MULT=4.0f",
+    "tune:SHOP_GOLD=400",
+    "tune:TEAM_SOAK=1.0",
+    "tune:CLAIMED_MULT=0.7f",
+    "policy:clear_rate=0.5f",
+    "tune:SQUAD_SOAK=0.72",
+    "tune:JOIN_MULT=1.0f",
+    "policy:clear_rate=2.0f",
+    "tune:WAIT_CLAIMED_MULT=0.05f",
+    "policy:solo_capture=true",
+    "draft:draft=3,4,1,7,10,9,0,2,6,8,5",
+    "tune:BANK_MIN=16",
+    "tune:OVERSTAFF_MULT=0.0485f",
+    "tune:STICKY_MULT=3.0f",
+    "tune:DEAD_SKIP_TURNS=3",
+    "tune:GOLD_W=0.15",
+    "tune:CAMP_OVERHEAD=10.0f",
+    "tune:BANK_AT=15"
+   ],
+   "accepted": 5,
+   "stalled": 20,
+   "sat_logged": false,
+   "champs": {
+    "3": {
+     "games": 297,
+     "gems": 93348.0,
+     "md": 6536357.0,
+     "cd": 468408.6493148804,
+     "deaths": 216.0,
+     "kills": 190.0,
+     "gold": 542966.0,
+     "bodies": 594
+    },
+    "4": {
+     "games": 297,
+     "gems": 41274.0,
+     "md": 5594019.0,
+     "cd": 931787.5644493103,
+     "deaths": 94.0,
+     "kills": 338.0,
+     "gold": 225737.0,
+     "bodies": 297
+    },
+    "7": {
+     "games": 297,
+     "gems": 45522.0,
+     "md": 2284069.25,
+     "cd": 147787.14498901367,
+     "deaths": 119.0,
+     "kills": 95.0,
+     "gold": 260543.0,
+     "bodies": 297
+    },
+    "10": {
+     "games": 297,
+     "gems": 41328.0,
+     "md": 4273497.0,
+     "cd": 1147141.1106681824,
+     "deaths": 77.0,
+     "kills": 783.0,
+     "gold": 246635.0,
+     "bodies": 297
+    },
+    "9": {
+     "games": 284,
+     "gems": 71568.0,
+     "md": 5257825.0,
+     "cd": 96980.59970092773,
+     "deaths": 60.0,
+     "kills": 6.0,
+     "gold": 397244.0,
+     "bodies": 284
+    },
+    "2": {
+     "games": 6,
+     "gems": 1278.0,
+     "md": 88082.5,
+     "cd": 1179.0,
+     "deaths": 2.0,
+     "kills": 0.0,
+     "gold": 7495.0,
+     "bodies": 6
+    },
+    "1": {
+     "games": 7,
+     "gems": 1278.0,
+     "md": 113692.0,
+     "cd": 6234.5,
+     "deaths": 0.0,
+     "kills": 1.0,
+     "gold": 8127.0,
+     "bodies": 7
+    }
+   },
+   "sets": {
+    "3,4,7,9,10": {
+     "games": 284,
+     "wins": 251,
+     "gemdiff": 82386.0
+    },
+    "2,3,4,7,10": {
+     "games": 6,
+     "wins": 4,
+     "gemdiff": 810.0
+    },
+    "1,3,4,7,10": {
+     "games": 7,
+     "wins": 6,
+     "gemdiff": 2394.0
+    }
+   },
+   "team_size": 5
+  },
+  "fragment": {
+   "tune": {
+    "GEM_SAFETY": "false",
+    "DEAD_SKIP_TURNS": "12",
+    "HEAT_DECAY_TURNS": "20",
+    "CASTER_ITEM_FAMILY3": "3",
+    "MELEE_ITEM_FAMILY2": "5",
+    "TEAM_SOAK": "0.25"
+   },
+   "policy": {
+    "near_k": "10"
+   },
+   "draft": null,
+   "score": [
+    1.0,
+    810.1781308358322
+   ],
+   "cscore": [
+    1.0,
+    923.0459991156368
+   ],
+   "tested": [
+    "tune:DEATH_RADIUS=4",
+    "tune:RETREAT_HOME=false",
+    "tune:RETREAT=false",
+    "tune:MELEE_ITEM_STAT3=4",
+    "tune:COLLECTOR_FOCUS=false",
+    "tune:SHOP_STYLE=6",
+    "tune:SAFE_GEMS=8",
+    "tune:SPAWN_HEAL_HP=0.5f",
+    "tune:SQUAD_READY_RADIUS=8",
+    "tune:GROWTH_SCALE=false",
+    "tune:PVP_ALLY_RADIUS=6",
+    "tune:MONOLITH=true",
+    "tune:TANK_ITEM_FAMILY2=5",
+    "policy:rally=true",
+    "tune:HUNT_MIN_GEMS=20",
+    "tune:GEM_SAFETY=true",
+    "tune:MELEE_ITEM_FAMILY1=1",
+    "tune:REGROUP_DIST=9",
+    "tune:TANK_ITEM_FAMILY1=1",
+    "tune:KITE=false",
+    "tune:SAFE_RECALL=false",
+    "tune:MELEE_ITEM_FAMILY2=8",
+    "tune:OWN_LOCKS=false",
+    "draft:draft=3,4,7,10,9,0,2,6,1,8,5",
+    "tune:BANK_AT_DANGER=11",
+    "tune:MELEE_ITEM_FAMILY2=2",
+    "tune:DANGER_MEMORY=10",
+    "tune:ENEMY_CAMP_RADIUS=14",
+    "tune:CASSI_RECALL_HP=0.275",
+    "draft:draft=4,3,10,9,0,2,7,6,1,8,5",
+    "tune:CAPTURE_SKIP_TURNS=4",
+    "tune:TARGET_HP_W=0.5f",
+    "tune:ALLY_BAG_ESTIMATE=0.5f",
+    "tune:CASTER_ITEM_STAT3=3",
+    "tune:BANK_MAX=28",
+    "tune:CHASE_HP=1.0f",
+    "tune:DEAD_SKIP_TURNS=24",
+    "tune:EMBLEM_COUNT=3",
+    "policy:lone_foes=4",
+    "tune:CASTER_ITEM_STAT2=2",
+    "tune:ENDGAME_ROUTE_MULT=4",
+    "tune:RALLY_RANGE=28",
+    "tune:CASTER_ITEM_STAT2=0",
+    "tune:REN_TARGET_PENALTY=250",
+    "tune:ESCORT_RADIUS=16",
+    "tune:TANK_HP=500.0f",
+    "tune:RETREAT_BUSH_BONUS=8",
+    "tune:RETREAT_SPREAD_PENALTY=16",
+    "tune:SQUAD_SOAK=0.18",
+    "tune:BANK_MIN=16",
+    "tune:CASTER_FOCUS_SHARE=0.8",
+    "tune:TANK_CENTRE_MULT=0.75",
+    "tune:TANK_POWER_STAT=1",
+    "tune:SHOP_GOLD=100",
+    "tune:RECALL_HP_DANGER=0.5",
+    "tune:BANK_K=4.75",
+    "tune:SQUAD_SOAK=0.72",
+    "tune:HUNT_RANGE=2",
+    "tune:BANK_STUCK_TURNS=12",
+    "tune:TANK_ITEM_FAMILY2=2",
+    "tune:MONO_BIAS=0.5",
+    "tune:ENGAGE_TTL=6",
+    "draft:draft=3,4,10,9,0,2,6,7,1,8,5",
+    "tune:REGROUP_SIZE=2",
+    "tune:LANCH_GATE=true",
+    "tune:LANCH_ON=true",
+    "tune:BANK_AT=60",
+    "tune:GOLD_W=0.6",
+    "tune:BANK_MIN=8",
+    "draft:draft=3,4,2,10,9,0,7,6,1,8,5",
+    "tune:JOIN_MULT=1.0f",
+    "tune:OVERSTAFF_MULT=0.0485f",
+    "tune:GOLD_W=0.15",
+    "tune:SHOP_GOLD=201",
+    "tune:BANK_MAX=110",
+    "draft:draft=3,4,1,10,9,0,2,7,6,8,5",
+    "tune:CAPTURE_SKIP_TURNS=9"
+   ],
+   "accepted": 8,
+   "stalled": 11,
+   "sat_logged": false,
+   "champs": {
+    "3": {
+     "games": 210,
+     "gems": 83617.0,
+     "md": 4942656.300140381,
+     "cd": 575034.766166687,
+     "deaths": 1082.0,
+     "kills": 504.0,
+     "gold": 484519.0,
+     "bodies": 420
+    },
+    "4": {
+     "games": 210,
+     "gems": 61923.0,
+     "md": 4851358.300048828,
+     "cd": 1034692.8757610321,
+     "deaths": 377.0,
+     "kills": 736.0,
+     "gold": 367636.0,
+     "bodies": 210
+    },
+    "10": {
+     "games": 177,
+     "gems": 46959.0,
+     "md": 2878247.5,
+     "cd": 1006664.2675323486,
+     "deaths": 336.0,
+     "kills": 870.0,
+     "gold": 264743.0,
+     "bodies": 177
+    },
+    "8": {
+     "games": 6,
+     "gems": 1491.0,
+     "md": 97527.5,
+     "cd": 28920.000602722168,
+     "deaths": 10.0,
+     "kills": 11.0,
+     "gold": 9250.0,
+     "bodies": 6
+    },
+    "2": {
+     "games": 13,
+     "gems": 2854.0,
+     "md": 186879.0,
+     "cd": 4983.60009765625,
+     "deaths": 35.0,
+     "kills": 8.0,
+     "gold": 16129.0,
+     "bodies": 13
+    },
+    "5": {
+     "games": 6,
+     "gems": 1290.0,
+     "md": 113362.19979095459,
+     "cd": 23098.710807800293,
+     "deaths": 11.0,
+     "kills": 10.0,
+     "gold": 8801.0,
+     "bodies": 6
+    },
+    "1": {
+     "games": 8,
+     "gems": 1948.0,
+     "md": 138617.25,
+     "cd": 25308.65020751953,
+     "deaths": 19.0,
+     "kills": 11.0,
+     "gold": 12259.0,
+     "bodies": 8
+    }
+   },
+   "sets": {
+    "3,4,10": {
+     "games": 177,
+     "wins": 166,
+     "gemdiff": 106646.0
+    },
+    "3,4,8": {
+     "games": 6,
+     "wins": 5,
+     "gemdiff": 3550.0
+    },
+    "2,3,4": {
+     "games": 13,
+     "wins": 6,
+     "gemdiff": -754.0
+    },
+    "3,4,5": {
+     "games": 6,
+     "wins": 3,
+     "gemdiff": -78.0
+    },
+    "1,3,4": {
+     "games": 8,
+     "wins": 6,
+     "gemdiff": 875.0
+    }
+   },
+   "team_size": 3
+  },
+  "packs": {
+   "tune": {
+    "GEM_SAFETY": "false",
+    "SAFE_RECALL": "false",
+    "PVP_ALLY_RADIUS": "6",
+    "MELEE_ITEM_FAMILY2": "8",
+    "TEAM_SOAK_MONO": "1.5"
+   },
+   "policy": {},
+   "draft": null,
+   "score": [
+    0.75,
+    184.25
+   ],
+   "cscore": [
+    1.0,
+    451.75
+   ],
+   "tested": [
+    "tune:DEATH_RADIUS=4",
+    "tune:RETREAT_HOME=false",
+    "tune:RETREAT=false",
+    "tune:MELEE_ITEM_STAT3=4",
+    "tune:COLLECTOR_FOCUS=false",
+    "tune:SHOP_STYLE=6",
+    "tune:SAFE_GEMS=8",
+    "tune:SPAWN_HEAL_HP=0.5f",
+    "tune:GROWTH_SCALE=false",
+    "tune:SQUAD_READY_RADIUS=8",
+    "tune:PVP_ALLY_RADIUS=7",
+    "tune:MONOLITH=true",
+    "tune:TANK_ITEM_FAMILY2=5",
+    "policy:rally=true",
+    "tune:HUNT_MIN_GEMS=20",
+    "tune:GEM_SAFETY=true",
+    "tune:REGROUP_DIST=9",
+    "tune:MELEE_ITEM_FAMILY1=1",
+    "tune:TANK_ITEM_FAMILY1=1",
+    "tune:KITE=false",
+    "tune:MELEE_ITEM_FAMILY2=16",
+    "tune:SAFE_RECALL=true",
+    "tune:OWN_LOCKS=false",
+    "draft:draft=3,4,7,10,9,0,2,6,1,8,5",
+    "tune:BANK_AT_DANGER=11",
+    "tune:MELEE_ITEM_FAMILY2=4",
+    "tune:DANGER_MEMORY=10",
+    "tune:ENEMY_CAMP_RADIUS=14",
+    "tune:CASSI_RECALL_HP=0.275",
+    "draft:draft=4,3,10,9,0,2,7,6,1,8,5",
+    "tune:MELEE_ITEM_FAMILY2=9",
+    "tune:PRIVATE_SLACK=20",
+    "tune:CAPTURE_SKIP_TURNS=4",
+    "tune:TARGET_HP_W=0.5f",
+    "tune:ALLY_BAG_ESTIMATE=0.5f",
+    "tune:CASTER_ITEM_STAT3=3",
+    "tune:BANK_MAX=28",
+    "tune:CHASE_HP=1.0f",
+    "tune:DEAD_SKIP_TURNS=12",
+    "tune:EMBLEM_COUNT=3"
+   ],
+   "accepted": 5,
+   "stalled": 40,
+   "sat_logged": false
+  },
+  "rows": {
+   "tune": {
+    "MELEE_ITEM_FAMILY2": "8",
+    "SQUAD_READY_RADIUS": "8"
+   },
+   "policy": {},
+   "draft": [
+    3,
+    4,
+    7,
+    10,
+    9,
+    0,
+    2,
+    6,
+    1,
+    8,
+    5
+   ],
+   "score": [
+    0.75,
+    132.0
+   ],
+   "cscore": [
+    1.0,
+    279.125
+   ],
+   "tested": [
+    "tune:DEATH_RADIUS=4",
+    "tune:RETREAT_HOME=false",
+    "tune:RETREAT=false",
+    "tune:MELEE_ITEM_STAT3=4",
+    "tune:COLLECTOR_FOCUS=false",
+    "tune:SHOP_STYLE=6",
+    "tune:SAFE_GEMS=8",
+    "tune:SPAWN_HEAL_HP=0.5f",
+    "tune:SQUAD_READY_RADIUS=16",
+    "tune:GROWTH_SCALE=false",
+    "tune:PVP_ALLY_RADIUS=6",
+    "tune:MONOLITH=true",
+    "tune:TANK_ITEM_FAMILY2=5",
+    "policy:rally=true",
+    "tune:HUNT_MIN_GEMS=20",
+    "tune:GEM_SAFETY=false",
+    "tune:MELEE_ITEM_FAMILY1=1",
+    "tune:REGROUP_DIST=9",
+    "tune:TANK_ITEM_FAMILY1=1",
+    "tune:KITE=false",
+    "tune:MELEE_ITEM_FAMILY2=16",
+    "tune:SAFE_RECALL=false",
+    "tune:OWN_LOCKS=false",
+    "draft:draft=3,4,7,10,9,0,2,6,1,8,5",
+    "tune:BANK_AT_DANGER=11",
+    "tune:MELEE_ITEM_FAMILY2=4",
+    "tune:DANGER_MEMORY=10",
+    "tune:ENEMY_CAMP_RADIUS=14",
+    "tune:CASSI_RECALL_HP=0.275",
+    "draft:draft=4,3,7,10,9,0,2,6,1,8,5",
+    "tune:MELEE_ITEM_FAMILY2=9",
+    "tune:PRIVATE_SLACK=20",
+    "tune:CAPTURE_SKIP_TURNS=4",
+    "tune:TARGET_HP_W=0.5f",
+    "tune:ALLY_BAG_ESTIMATE=0.5f",
+    "tune:CASTER_ITEM_STAT3=3",
+    "tune:BANK_MAX=28",
+    "tune:CHASE_HP=1.0f",
+    "tune:DEAD_SKIP_TURNS=12",
+    "tune:EMBLEM_COUNT=3"
+   ],
+   "accepted": 3,
+   "stalled": 40,
+   "sat_logged": false
+  },
+  "stampede": {
+   "tune": {
+    "PVP_ALLY_RADIUS": "6",
+    "SQUAD_SOAK": "0.18"
+   },
+   "policy": {},
+   "draft": [
+    4,
+    3,
+    10,
+    9,
+    0,
+    2,
+    7,
+    6,
+    1,
+    8,
+    5
+   ],
+   "score": [
+    0.75,
+    540.0
+   ],
+   "cscore": [
+    1.0,
+    1116.0
+   ],
+   "tested": [
+    "tune:DEATH_RADIUS=4",
+    "tune:RETREAT_HOME=false",
+    "tune:MELEE_ITEM_STAT3=4",
+    "tune:RETREAT=false",
+    "tune:COLLECTOR_FOCUS=false",
+    "tune:SHOP_STYLE=6",
+    "tune:SAFE_GEMS=8",
+    "tune:SPAWN_HEAL_HP=0.5f",
+    "tune:GROWTH_SCALE=false",
+    "tune:SQUAD_READY_RADIUS=8",
+    "tune:PVP_ALLY_RADIUS=7",
+    "tune:MONOLITH=true",
+    "tune:TANK_ITEM_FAMILY2=5",
+    "policy:rally=true",
+    "tune:HUNT_MIN_GEMS=20",
+    "tune:GEM_SAFETY=false",
+    "tune:MELEE_ITEM_FAMILY1=1",
+    "tune:REGROUP_DIST=9",
+    "tune:TANK_ITEM_FAMILY1=1",
+    "tune:KITE=false",
+    "tune:MELEE_ITEM_FAMILY2=8",
+    "tune:SAFE_RECALL=false"
+   ],
+   "accepted": 3,
+   "stalled": 22,
+   "sat_logged": false
+  }
+ }
+}

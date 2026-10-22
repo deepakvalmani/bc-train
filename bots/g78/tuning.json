@@ -1,0 +1,43 @@
+{
+ "maps": {
+  "general": {
+   "tune": {},
+   "policy": {},
+   "draft": null,
+   "score": [
+    0.59375,
+    -59.55157079613347
+   ],
+   "cscore": [
+    0.7291666666666666,
+    -112.18959438975078
+   ],
+   "tested": [
+    "tune:LANCH_RECALL_HP=0.5f",
+    "tune:LANCH_RECALL_HP=0.1f",
+    "policy:flee_outnumbered=true",
+    "tune:KITE=false",
+    "tune:LANCH_MIN=1.6f",
+    "tune:AOE_PVP=false",
+    "policy:lone_flee=true",
+    "tune:LANCH_MIN=0.4f",
+    "tune:CHASE=true",
+    "tune:BURST_EXIT=false",
+    "policy:clear_rate=0.5f",
+    "tune:LANCH_ON=true",
+    "tune:LANCH_GATE=true",
+    "tune:SQUAD_SOAK=0.18",
+    "policy:gold_only_scale=0.5f",
+    "tune:OVERSTAFF_MULT=0.0485f",
+    "tune:WAIT_CLAIMED_MULT=0.05f",
+    "policy:clear_rate=2.0f",
+    "tune:JOIN_MULT=1.0f",
+    "tune:CLAIMED_MULT=0.7f"
+   ],
+   "accepted": 0,
+   "team_size": null,
+   "champs": {},
+   "sets": {}
+  }
+ }
+}
