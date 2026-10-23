@@ -13,6 +13,9 @@ on:
       shards:
         description: "Number of parallel shard jobs (max 20)"
         default: "4"
+      seed:
+        description: "Random seed (use a new one each round)"
+        default: "1"
       bot:
         description: "Bot folder to train"
         default: "bots/g78"
@@ -50,7 +53,7 @@ jobs:
       - run: bash tools/ci_setup.sh
       - run: python tools/build_check.py ${{ inputs.bot }}
       - name: Train shard
-        run: python -u tools/gtrain.py ${{ inputs.bot }} --runtime rt --hours ${{ inputs.hours }} --lanes 3 --shard ${{ matrix.shard }}/${{ inputs.shards }}
+        run: python -u tools/gtrain.py ${{ inputs.bot }} --runtime rt --hours ${{ inputs.hours }} --lanes 3 --shard ${{ matrix.shard }}/${{ inputs.shards }} --seed ${{ inputs.seed }}
       - uses: actions/upload-artifact@v4
         if: always()
         with:
