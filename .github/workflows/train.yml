@@ -8,8 +8,11 @@ on:
   workflow_dispatch:
     inputs:
       hours:
-        description: "Hours per shard job (max 5)"
-        default: "5"
+        description: "Max hours per pass (a pass stops earlier once its candidates are done)"
+        default: "1.2"
+      passes:
+        description: "Passes per shard: each starts from what the previous pass accepted, with a new seed (max 4 fit in 5.5 h)"
+        default: "4"
       shards:
         description: "Number of parallel shard jobs (max 20)"
         default: "4"
@@ -52,8 +55,11 @@ jobs:
           python-version: "3.12"
       - run: bash tools/ci_setup.sh
       - run: python tools/build_check.py ${{ inputs.bot }}
-      - name: Train shard
-        run: python -u tools/gtrain.py ${{ inputs.bot }} --runtime rt --hours ${{ inputs.hours }} --lanes 3 --shard ${{ matrix.shard }}/${{ inputs.shards }} --seed ${{ inputs.seed }}
+      - name: Train shard (several passes)
+        run: |
+          for p in $(seq 1 ${{ inputs.passes }}); do
+            python -u tools/gtrain.py ${{ inputs.bot }} --runtime rt --hours ${{ inputs.hours }} --lanes 3 --shard ${{ matrix.shard }}/${{ inputs.shards }} --seed $(( ${{ inputs.seed }} * 100 + p ))
+          done
       - uses: actions/upload-artifact@v4
         if: always()
         with:

@@ -13,7 +13,7 @@ if not ok:
     if not ok: sys.exit("ERROR: headers still do not match tuning.json")
 r = subprocess.run([sys.executable, "tools/build_check.py", bot], cwd=ROOT, capture_output=True, text=True)
 if "errors 0" not in r.stdout: sys.exit("ERROR: build check failed\n" + r.stdout[-600:])
-exe = ROOT / "out" / "current-runtime" / "cambc.exe"
+exe = ROOT / "rt_v5" / "cambc.exe" if (ROOT / "rt_v5" / "cambc.exe").exists() else ROOT / "out" / "current-runtime" / "cambc.exe"
 subprocess.run([str(exe), "bundle", bot], cwd=ROOT, check=True)
 z = ROOT / (pathlib.Path(bot).name + ".zip")
 (ROOT / "submissions").mkdir(exist_ok=True)
