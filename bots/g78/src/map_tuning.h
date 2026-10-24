@@ -10,6 +10,7 @@ inline void apply_map(map_policies::Map m, Tune& t) {
         t.BANK_STUCK_TURNS = 6;
         t.ENGAGE_TTL = 2;
         t.LOCKED_DETOUR = 5;
+        t.TARGET_HP_W = 0.5f;
         t.TEAM_SOAK_MONO = 1.5;
         break;
     default: break;
