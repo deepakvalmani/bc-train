@@ -503,6 +503,7 @@ def merge(lanes, start_state):
         if best is None:
             b1, _ = eval_state_on(lanes, cur, S1M, S1O); b2, _ = eval_state_on(lanes, cur, S2M, S2O); best = (b1, b2)
         ok = s1 is not None and s2 is not None and (s1[0] > best[0][0] or (s1[0] == best[0][0] and s1[1] >= best[0][1] - 5)) and s2[0] >= best[1][0] and s2[1] >= best[1][1] - 10
+        if not ok and s1 is not None and s2 is not None and s1[0] >= best[0][0] and s2[0] >= best[1][0] and (s1[0] > best[0][0] or s2[0] > best[1][0]): ok = True   # more wins on a stage, none lost on the other
         say(f"   {c[1]}={c[2]}: S1 {fmt(s1)} S2 {fmt(s2)} vs {fmt(best[0])} / {fmt(best[1])} -> {'KEEP' if ok else 'skip'}")
         if ok: cur = trial; best = (s1, s2)
     state.clear(); state.update(cur)
