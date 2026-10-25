@@ -8,7 +8,8 @@
     "BANK_STUCK_TURNS": "6",
     "BANK_RETRY_WAIT": "12",
     "TARGET_HP_W": "0.5f",
-    "SAFE_GEMS": 30
+    "SAFE_GEMS": 30,
+    "BANK_MIN": "4"
    },
    "policy": {},
    "draft": null,
