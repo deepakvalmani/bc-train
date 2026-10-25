@@ -272,4 +272,21 @@ constexpr int DRAFT_CORNERS[] = {9,0,4,3,10,2,7,6,1,8,5};
 // tunable (see tune_gen.h): BANK_BLOCK_CAMPS = true  // bank walks path around every camp position, seen or not (the-farm: vision flip loop)
 
 // tunable (see tune_gen.h): FIX_BIG_GROUP = true   // walk to the unseen part of a big connected camp group instead of waiting on it
+
+// ---- behaviour switches ported from earlier experiments (all OFF by default; the trainer turns them on/off) ----
+// tunable (see tune_gen.h): SPAWN_DEF = false         // v77: fall back to the spawn (heals every turn, enemies cannot enter) when a squad is on us near home
+// tunable (see tune_gen.h): SPAWN_DEF_FOES = 3
+// tunable (see tune_gen.h): SPAWN_DEF_SEE = 9
+// tunable (see tune_gen.h): SPAWN_DEF_SLACK = 1
+// tunable (see tune_gen.h): SPAWN_DEF_R = 14
+// tunable (see tune_gen.h): SPAWN_DEF_HOLD = 4
+// tunable (see tune_gen.h): FISH_LOWEST_HP = false    // v68: target the lowest-HP enemy in range
+// tunable (see tune_gen.h): FISH_SPELL_FIRST = false  // v68: cast a damage/CC spell at the target before moving
+// tunable (see tune_gen.h): FISH_SPELL_PCT = 40
+// tunable (see tune_gen.h): FISH_CHAMP_FIRST = false  // v68: hit an enemy champion in reach before any camp
+// tunable (see tune_gen.h): FISH_ENGAGE = false       // v67: healthy and not outnumbered -> hold/advance on an enemy champion instead of fleeing
+// tunable (see tune_gen.h): FISH_ENGAGE_HP = 0.6
+// tunable (see tune_gen.h): FISH_ENGAGE_SLACK = 1
+// tunable (see tune_gen.h): TOGETHER_MULT = 1.0       // v66: extra score for a camp allies already target (1.0 = off)
+// tunable (see tune_gen.h): TOGETHER_FROM = 120
 #include "tune_gen.h"

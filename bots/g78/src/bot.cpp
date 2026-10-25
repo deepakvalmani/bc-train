@@ -964,7 +964,7 @@ int Bot::choose_group() {
         const bool respawning = ready_round[i] > now;
         if (respawning && have > 0) score *= WAIT_CLAIMED_MULT;          // someone already waits there
         else if (have >= need && (int)i != target_group) score *= OVERSTAFF_MULT;
-        else if (have > 0 && !respawning) score *= JOIN_MULT;
+        else if (have > 0 && !respawning) score *= JOIN_MULT * (now >= TOGETHER_FROM ? TOGETHER_MULT : 1.0);
         if ((int)i == target_group && !respawning) score *= STICKY_MULT;
         if constexpr (policy::active) {
             policy::Features x{1, (float)d/100, (float)turns/100, (float)g.gems/200,
@@ -1100,7 +1100,7 @@ const cambc::champion* Bot::pick_target(int range) {
                     if (o.is_visible()) hp = std::min<double>(hp, o.health());
                 }
         }
-        double sc = TARGET_HP_W * hp - (GEM_HUNT ? TARGET_GEM_W * bag : 0.0);
+        double sc = FISH_LOWEST_HP ? hp : TARGET_HP_W * hp - (GEM_HUNT ? TARGET_GEM_W * bag : 0.0);
         if constexpr (economy::combat) {
             sc-=economy::EXPECTED_DAMAGE_W*std::min(hp,burst)
                 +economy::KILL_CONFIRM_W*(hp<=burst ? 50+bag : 0)
@@ -1171,6 +1171,18 @@ bool Bot::fire_at(const cambc::champion& tgt) {
     if (g_replay_repairs && g_enemy_spawn->is_set(tgt.position())) return false;
     auto& me = cambc::self();
     bool acted = false;
+    // Fish casts its first spell on an enemy champion on ~20% of ready turns, BEFORE moving (a spell cannot follow a move).
+    if (FISH_SPELL_FIRST && me.can_cast() && me.can_attack() && cambc::fuel_remaining() > 20000) {
+        const unsigned h = (unsigned)cambc::round_number() * 2654435761u + (unsigned)(int)me.champion_name() * 40503u;
+        if ((h >> 8) % 100 < (unsigned)FISH_SPELL_PCT) {
+            try {
+                for (auto& a : me.abilities()) {
+                    if (!a.is_ready() || !a.can_target_enemies() || !(a.is_damage() || a.is_cc())) continue;
+                    if (in_reach(tgt) || dist(me.position(), tgt.position()) <= 4) { if (a.use(tgt)) { acted = true; break; } }
+                }
+            } catch (const std::exception&) {}
+        }
+    }
     if constexpr (sequences::healthy != 0 || sequences::injured != 0) if (map_strategy::use_v42()) {
         const int order = me.health() * 2 < me.max_health() ? sequences::injured : sequences::healthy;
         if (order != 0 && cambc::fuel_remaining() > 24000) {
@@ -1481,6 +1493,23 @@ void Bot::play_turn() {
     const bool took_dmg = prev_hp > 0 && me.health() < prev_hp - 0.5f;
     last_dmg = prev_hp > 0 ? std::max(0.0f, prev_hp - me.health()) : 0.0f;
     prev_hp = me.health();
+    // ---- spawn defence: our spawn tiles heal a standing champion to full every turn and enemies cannot step on them.
+    // When an enemy squad is on us near home, fall back to the spawn and fight from there instead of dying in the open. ----
+    if (SPAWN_DEF) {
+        int foes = 0, friends = 1;
+        for (const auto& e : g_enemies) { try { if (e.is_visible() && e.is_alive() && dist(pos, e.position()) <= SPAWN_DEF_SEE) ++foes; } catch (const std::exception&) {} }
+        for (const auto& a : g_allies) { try { if (a.position() != pos && dist(pos, a.position()) <= 6) ++friends; } catch (const std::exception&) {} }
+        const int now_sd = (int)cambc::round_number();
+        if (foes >= SPAWN_DEF_FOES && foes > friends - SPAWN_DEF_SLACK && (home_dist(pos) <= SPAWN_DEF_R || at_spawn)) spawn_hold_until = now_sd + SPAWN_DEF_HOLD;
+        if (now_sd < spawn_hold_until && foes > 0 && me.gem_count() >= 0) {
+            if (!at_spawn && me.can_move() && move_towards_closest(cambc::map::spawn_region(team::ally))) { log.act = "spawn_defend"; return; }
+            if (at_spawn) {   // hold: heal each turn and hit whatever comes into reach
+                const cambc::champion* t = pick_target(std::max(g_range, 3));
+                if (t) fire_at(*t);
+                log.act = "spawn_hold"; return;
+            }
+        }
+    }
     double recall_at = RECALL_HP;
     if constexpr (economy::survival) {
         const auto risk=economy::estimate(me.health(),observed_incoming,observed_cc,5);
@@ -1603,7 +1632,8 @@ void Bot::play_turn() {
         const bool finish = tgt && target_killable && in_reach(*tgt);   // a kill in hand: take it
         const bool burst = BURST_EXIT && last_dmg >= BURST_FRAC * me.max_health();   // being focused: leave now
         const bool lone = LONE_FLEE && foes >= LONE_FOES && friends <= 1;
-        const bool losing = !finish && (burst || lone || (LANCH_ON && g_lanch_foes > 0 && g_lanch < LANCH_MIN) || (FLEE_OUTNUMBERED
+        const bool fish_hold = FISH_ENGAGE && tgt && me.health() >= me.max_health() * FISH_ENGAGE_HP && foes <= friends + FISH_ENGAGE_SLACK && !lone;
+        const bool losing = !finish && !fish_hold && (burst || lone || (LANCH_ON && g_lanch_foes > 0 && g_lanch < LANCH_MIN) || (FLEE_OUTNUMBERED
             ? (foes > friends || (foes == friends && me.health() < me.max_health() * EQUAL_FIGHT_HP))
             : (foes > friends && me.health() < me.max_health() * EQUAL_FIGHT_HP)));
         const bool lanch_bad = LANCH_ON && !finish && g_lanch_foes > 0 && g_lanch < LANCH_MIN;
@@ -1617,9 +1647,9 @@ void Bot::play_turn() {
             bool tgt_ok = false;   // our hits may have just killed it (dead units throw)
             try { tgt_ok = tgt->is_visible() && tgt->is_alive(); } catch (const std::exception&) {}
             // Careful: only tanks chase, or anyone for a kill this turn; never into more enemies than allies.
-            const bool may_chase = !CAREFUL_PVP || ((target_killable || me.max_health() >= CHASE_TANK_HP) && foes <= friends);
+            const bool may_chase = fish_hold || !CAREFUL_PVP || ((target_killable || me.max_health() >= CHASE_TANK_HP) && foes <= friends);
             // Same-speed chases rarely connect (Ryth: 233 chase turns, 15 hits): give up after CHASE_MAX turns.
-            if (CHASE && may_chase && tgt_ok && chase_streak < CHASE_MAX && me.can_move() && !in_reach(*tgt) && me.health() >= me.max_health() * CHASE_HP
+            if ((CHASE || fish_hold) && may_chase && tgt_ok && (fish_hold || chase_streak < CHASE_MAX) && me.can_move() && !in_reach(*tgt) && (fish_hold || me.health() >= me.max_health() * CHASE_HP)
                 && move_towards_closest(tiles_around(tgt->position(), g_range))) { ++chase_streak; chased_last = true; log.act = "pvp_chase"; return; }
             // Still have our move after shooting: a ranged champion steps away from melee range.
             if (acted && KITE_STEP && me.can_move() && me.attack_range() >= 3) {
@@ -1930,6 +1960,13 @@ void Bot::play_turn() {
             bank_no_gain = 0;
             no_bank_until = now_r + BANK_RETRY_WAIT;
             bank_stuck = 0; last_altar_dist = 1 << 20;
+    if (FISH_CHAMP_FIRST && me.can_attack()) {   // an enemy champion in reach is hit before any camp (Fish: 71% of attacks)
+        const cambc::champion* ec = nullptr;
+        for (const auto& e : g_enemies) {
+            try { if (e.is_visible() && e.is_alive() && e.health() > 0 && in_reach(e) && !(g_replay_repairs && g_enemy_spawn->is_set(e.position())) && (!ec || e.health() < ec->health())) ec = &e; } catch (const std::exception&) {}
+        }
+        if (ec) { try { if (fire_at(*ec)) { log.act = "fish_champ_first"; return; } } catch (const std::exception&) {} }
+    }
         }
         if (moved) { log.act = "walk_altar"; return; }
         if (now_r < no_bank_until) { log.act = "bank_giveup"; }

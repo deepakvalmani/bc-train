@@ -218,6 +218,21 @@ struct Tune {
     bool STICKY_BANK = true;
     bool BANK_BLOCK_CAMPS = true;
     bool FIX_BIG_GROUP = true;
+    bool SPAWN_DEF = false;
+    int SPAWN_DEF_FOES = 3;
+    int SPAWN_DEF_SEE = 9;
+    int SPAWN_DEF_SLACK = 1;
+    int SPAWN_DEF_R = 14;
+    int SPAWN_DEF_HOLD = 4;
+    bool FISH_LOWEST_HP = false;
+    bool FISH_SPELL_FIRST = false;
+    int FISH_SPELL_PCT = 40;
+    bool FISH_CHAMP_FIRST = false;
+    bool FISH_ENGAGE = false;
+    double FISH_ENGAGE_HP = 0.6;
+    int FISH_ENGAGE_SLACK = 1;
+    double TOGETHER_MULT = 1.0;
+    int TOGETHER_FROM = 120;
 };
 inline Tune g;
 inline bool inited = false;
@@ -478,3 +493,18 @@ inline void init() {
 #define STICKY_BANK (tune::g.STICKY_BANK)
 #define BANK_BLOCK_CAMPS (tune::g.BANK_BLOCK_CAMPS)
 #define FIX_BIG_GROUP (tune::g.FIX_BIG_GROUP)
+#define SPAWN_DEF (tune::g.SPAWN_DEF)
+#define SPAWN_DEF_FOES (tune::g.SPAWN_DEF_FOES)
+#define SPAWN_DEF_SEE (tune::g.SPAWN_DEF_SEE)
+#define SPAWN_DEF_SLACK (tune::g.SPAWN_DEF_SLACK)
+#define SPAWN_DEF_R (tune::g.SPAWN_DEF_R)
+#define SPAWN_DEF_HOLD (tune::g.SPAWN_DEF_HOLD)
+#define FISH_LOWEST_HP (tune::g.FISH_LOWEST_HP)
+#define FISH_SPELL_FIRST (tune::g.FISH_SPELL_FIRST)
+#define FISH_SPELL_PCT (tune::g.FISH_SPELL_PCT)
+#define FISH_CHAMP_FIRST (tune::g.FISH_CHAMP_FIRST)
+#define FISH_ENGAGE (tune::g.FISH_ENGAGE)
+#define FISH_ENGAGE_HP (tune::g.FISH_ENGAGE_HP)
+#define FISH_ENGAGE_SLACK (tune::g.FISH_ENGAGE_SLACK)
+#define TOGETHER_MULT (tune::g.TOGETHER_MULT)
+#define TOGETHER_FROM (tune::g.TOGETHER_FROM)

@@ -21,10 +21,10 @@ on:
         default: "1"
       s1_opps:
         description: "Opponents of the 32-game stage (harder = more signal)"
-        default: "g78f,v65"
+        default: "g78f,v65,v67"
       s2_opps:
         description: "Opponents of the 48-game stage"
-        default: "g78f,v68,v77"
+        default: "g78f,v68,v77,v69"
       bot:
         description: "Bot folder to train"
         default: "bots/g78"

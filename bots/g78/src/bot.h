@@ -51,6 +51,7 @@ class Bot {
     int last_altar_dist = 1 << 20;
     int bank_no_gain = 0;             // turns without getting closer to an altar
     int last_bank_round = -10;
+    int spawn_hold_until = -1;
     int last_enemy_round = -1000;
     std::array<std::pair<cambc::vec2, int>, 16> sightings = make_empty_sightings();   // recent enemy positions (pos, round)
     int sight_next = 0;

@@ -143,6 +143,8 @@ def apply_cand(st, c):
     g = st["maps"]["general"]
     kind, n, v = c
     if kind == "draft": g["draft"] = [int(x) for x in v.split(",")]
+    elif kind == "bundle":   # several settings that only make sense together
+        for k2, d2 in json.loads(v).items(): g[k2].update(d2)
     else: g[kind][n] = v
     return st
 
@@ -150,8 +152,12 @@ def apply_cand(st, c):
 def candidates(rng, shard):
     g = G
     C = []
+    DEP = {"SPAWN_DEF_FOES": "SPAWN_DEF", "SPAWN_DEF_SEE": "SPAWN_DEF", "SPAWN_DEF_SLACK": "SPAWN_DEF", "SPAWN_DEF_R": "SPAWN_DEF", "SPAWN_DEF_HOLD": "SPAWN_DEF",
+           "FISH_SPELL_PCT": "FISH_SPELL_FIRST", "FISH_ENGAGE_HP": "FISH_ENGAGE", "FISH_ENGAGE_SLACK": "FISH_ENGAGE"}
     for n, (t, d) in fields.items():
         if n in SKIP: continue
+        if n in DEP and str(g["tune"].get(DEP[n], "false")) != "true": continue
+        if n == "TOGETHER_FROM" and float(str(g["tune"].get("TOGETHER_MULT", "1.0")).rstrip("f")) == 1.0: continue
         cur = d if n not in g["tune"] else parse(t, g["tune"][n])
         if t == "bool": vals = [not cur]
         elif t == "int": vals = sorted({max(0, int(round(cur * 0.5))), int(round(cur * 2)) if cur else 1, int(cur) + 1})
@@ -171,6 +177,17 @@ def candidates(rng, shard):
         else: vals = [cur * 0.5, cur * 2] if cur else [0.5, 2.0]
         for v in vals:
             if v != cur: C.append(("policy", n, lit(t, v)))
+    B = lambda **kw: ("bundle", "FISH_BUNDLE_" + "_".join(sorted(kw)), json.dumps({"tune": {k: lit("bool", v) if isinstance(v, bool) else v for k, v in kw.items()}}, sort_keys=True))
+    for kw in (dict(FISH_LOWEST_HP=True, FISH_SPELL_FIRST=True, FISH_CHAMP_FIRST=True),
+               dict(FISH_LOWEST_HP=True, FISH_SPELL_FIRST=True, FISH_CHAMP_FIRST=True, FISH_ENGAGE=True),
+               dict(FISH_CHAMP_FIRST=True, FISH_ENGAGE=True),
+               dict(FISH_CHAMP_FIRST=True, FISH_LOWEST_HP=True),
+               dict(SPAWN_DEF=True, FISH_ENGAGE=True),
+               dict(SPAWN_DEF=True, FISH_CHAMP_FIRST=True, FISH_LOWEST_HP=True),
+               dict(SPAWN_DEF=True, FISH_LOWEST_HP=True, FISH_SPELL_FIRST=True, FISH_CHAMP_FIRST=True, FISH_ENGAGE=True),
+               dict(TOGETHER_MULT="4.0")):
+        C.append(B(**kw))
+    C.append(("draft", "draft", "1,11,6,0,2,8,4,5,10,7,9,3"))   # top-5 teams' draft: Vesper, Heart of Ruin, Marcella, Ryth, ...
     if not o.no_draft:
         base = g["draft"] or DEFAULT_DRAFT
         for c in CHAMPS:
@@ -182,9 +199,9 @@ def candidates(rng, shard):
     C = [c for c in C if f"{c[0]}:{c[1]}={c[2]}" not in g["tested"]]
     SPEED = ("JOIN_MULT", "CLAIMED_MULT", "OVERSTAFF_MULT", "WAIT_CLAIMED_MULT", "STICKY_MULT", "CAMP_OVERHEAD", "GEM_W", "GOLD_W", "SQUAD_SOAK",
              "TEAM_SOAK", "ZONE_W", "BANK_AT", "BANK_MIN", "BANK_MAX", "SHOP_GOLD", "RECALL_HP", "clear_rate", "gold_only_scale", "near_k", "solo_capture", "draft")
-    FIGHT = ("LANCH_ON", "LANCH_GATE", "LANCH_RECALL_HP", "LANCH_MIN", "AOE_PVP", "KITE", "CHASE", "BURST_EXIT", "lone_flee", "flee_outnumbered")
+    FIGHT = ("SPAWN_DEF", "FISH_LOWEST_HP", "FISH_SPELL_FIRST", "FISH_CHAMP_FIRST", "FISH_ENGAGE", "TOGETHER_MULT", "LANCH_ON", "LANCH_GATE", "LANCH_RECALL_HP", "LANCH_MIN", "AOE_PVP", "KITE", "CHASE", "BURST_EXIT", "lone_flee", "flee_outnumbered")
     rng.shuffle(C)
-    C.sort(key=lambda c: 0 if c[1] in FIGHT else 1 if c[1] in SPEED else 2)
+    C.sort(key=lambda c: -1 if c[0] == 'bundle' else 0 if c[1] in FIGHT else 1 if c[1] in SPEED else 2)
     return C
 
 
@@ -494,6 +511,14 @@ def merge(lanes, start_state):
             for n, v in wg.get(kind, {}).items():
                 if mg[kind].get(n) != v: changes.append((kind, n, v))
         if wg.get("draft") and wg["draft"] != mg.get("draft"): changes.append(("draft", "draft", ",".join(map(str, wg["draft"]))))
+    groups = []
+    for wd in lists(o.merge_from):
+        wp = pathlib.Path(wd) if pathlib.Path(wd).is_absolute() else ROOT / wd
+        if not (wp / "tuning.json").exists(): continue
+        wg = json.load(open(wp / "tuning.json"))["maps"].get("general", {})
+        dd = {k: {n: v for n, v in wg.get(k, {}).items() if mg[k].get(n) != v} for k in ("tune", "policy")}
+        if len(dd["tune"]) + len(dd["policy"]) > 1: groups.append(("bundle", "shard_" + wp.name, json.dumps(dd, sort_keys=True)))
+    changes = groups + changes
     say(f"merging {len(changes)} changes from {o.merge_from}")
     cur = merged; best = None
     for c in changes:

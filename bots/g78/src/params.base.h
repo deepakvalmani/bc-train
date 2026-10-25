@@ -272,3 +272,20 @@ constexpr bool   STICKY_BANK      = true;  // keep walking to the altar once a b
 constexpr bool   BANK_BLOCK_CAMPS = true;  // bank walks path around every camp position, seen or not (the-farm: vision flip loop)
 
 constexpr bool FIX_BIG_GROUP = true;   // walk to the unseen part of a big connected camp group instead of waiting on it
+
+// ---- behaviour switches ported from earlier experiments (all OFF by default; the trainer turns them on/off) ----
+constexpr bool   SPAWN_DEF = false;         // v77: fall back to the spawn (heals every turn, enemies cannot enter) when a squad is on us near home
+constexpr int    SPAWN_DEF_FOES = 3;
+constexpr int    SPAWN_DEF_SEE = 9;
+constexpr int    SPAWN_DEF_SLACK = 1;
+constexpr int    SPAWN_DEF_R = 14;
+constexpr int    SPAWN_DEF_HOLD = 4;
+constexpr bool   FISH_LOWEST_HP = false;    // v68: target the lowest-HP enemy in range
+constexpr bool   FISH_SPELL_FIRST = false;  // v68: cast a damage/CC spell at the target before moving
+constexpr int    FISH_SPELL_PCT = 40;
+constexpr bool   FISH_CHAMP_FIRST = false;  // v68: hit an enemy champion in reach before any camp
+constexpr bool   FISH_ENGAGE = false;       // v67: healthy and not outnumbered -> hold/advance on an enemy champion instead of fleeing
+constexpr double FISH_ENGAGE_HP = 0.6;
+constexpr int    FISH_ENGAGE_SLACK = 1;
+constexpr double TOGETHER_MULT = 1.0;       // v66: extra score for a camp allies already target (1.0 = off)
+constexpr int    TOGETHER_FROM = 120;
