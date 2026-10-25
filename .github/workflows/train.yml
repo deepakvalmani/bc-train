@@ -19,6 +19,12 @@ on:
       seed:
         description: "Random seed (use a new one each round)"
         default: "1"
+      s1_opps:
+        description: "Opponents of the 32-game stage (harder = more signal)"
+        default: "v65,v68"
+      s2_opps:
+        description: "Opponents of the 48-game stage"
+        default: "v77,v76,v64"
       bot:
         description: "Bot folder to train"
         default: "bots/g78"
@@ -63,7 +69,7 @@ jobs:
             p=$((p+1)); LEFT=$(( BUDGET - SECONDS ))
             [ $LEFT -lt 900 ] && break
             H=$(python3 -c "print(round(min(${{ inputs.hours }}, $LEFT/3600 - 0.05), 2))")
-            python -u tools/gtrain.py ${{ inputs.bot }} --runtime rt --hours $H --lanes 3 --shard ${{ matrix.shard }}/${{ inputs.shards }} --seed $(( ${{ inputs.seed }} * 100 + p )) || true
+            python -u tools/gtrain.py ${{ inputs.bot }} --runtime rt --hours $H --lanes 3 --shard ${{ matrix.shard }}/${{ inputs.shards }} --seed $(( ${{ inputs.seed }} * 100 + p )) --s1-opps ${{ inputs.s1_opps }} --s2-opps ${{ inputs.s2_opps }} || true
           done
       - uses: actions/upload-artifact@v4
         if: always()
