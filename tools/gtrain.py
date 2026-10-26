@@ -27,7 +27,7 @@ import safeio
 EXE_NAME = "cambc.exe" if os.name == "nt" else "cambc"
 ap = argparse.ArgumentParser()
 ap.add_argument("base")
-ap.add_argument("--runtime", default="rt_v5", help="runtime folder to clone for every lane (cambc.exe, sdk, cmake, maps, cambc.toml)")
+ap.add_argument("--runtime", default="rt_v6", help="runtime folder to clone for every lane (cambc.exe, sdk, cmake, maps, cambc.toml)")
 ap.add_argument("--lanes", type=int, default=max(1, (os.cpu_count() or 4) // 2), help="parallel candidates; default = half the cores so a laptop stays usable (each lane runs one game at a time)")
 ap.add_argument("--hours", type=float, default=8.0)
 ap.add_argument("--seed", type=int, default=1)
@@ -187,6 +187,10 @@ def candidates(rng, shard):
                dict(SPAWN_DEF=True, FISH_LOWEST_HP=True, FISH_SPELL_FIRST=True, FISH_CHAMP_FIRST=True, FISH_ENGAGE=True),
                dict(TOGETHER_MULT="4.0")):
         C.append(B(**kw))
+    # Sprint 3 patch: new emblem families 7 tribute, 8 capture (capture 5 -> 3 turns), 9 prospector, 10 hunter (+50 gold per kill), 11 skirmish (+5% champion damage), 12 greed, 13 collector
+    for fam in (8, 9, 10, 11, 7):
+        for slot in (1, 2, 3):
+            C.append(("bundle", f"EMBLEM_SLOT{slot}_FAM{fam}", json.dumps({"tune": {f"{r}_ITEM_FAMILY{slot}": str(fam) for r in ("TANK", "CASTER", "MELEE")}}, sort_keys=True)))
     C.append(("draft", "draft", "1,11,6,0,2,8,4,5,10,7,9,3"))   # top-5 teams' draft: Vesper, Heart of Ruin, Marcella, Ryth, ...
     if not o.no_draft:
         base = g["draft"] or DEFAULT_DRAFT
