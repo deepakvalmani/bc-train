@@ -4,11 +4,13 @@
    "tune": {
     "ENGAGE_TTL": "2",
     "LOCKED_DETOUR": "5",
-    "TEAM_SOAK_MONO": "1.5",
+    "TEAM_SOAK_MONO": "0.75",
     "BANK_STUCK_TURNS": "6",
     "BANK_RETRY_WAIT": "12",
     "TARGET_HP_W": "0.5f",
-    "SAFE_GEMS": 30
+    "SAFE_GEMS": 30,
+    "BANK_MIN": "9",
+    "BANK_NO_GAIN": "60"
    },
    "policy": {},
    "draft": null,
